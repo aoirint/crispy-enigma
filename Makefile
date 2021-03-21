@@ -1,6 +1,8 @@
-bundle:
-	mkdir -p dist
-	deno bundle src/main.ts dist/main.js
+run-build:
+	mkdir -p build
+	mkdir -p build/bundle
+	deno bundle src/main.ts build/bundle/main.js
+	cp -r public/* build/
 
-serve: bundle
+run-serve: run-build
 	deno run --allow-net --allow-read serve.ts
